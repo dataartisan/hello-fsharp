@@ -1,0 +1,14 @@
+Make sure these prerequites are installed:
+
+  Mono 2.4.x
+  FSharp 2.x
+  NUnit 2.5.x
+
+Adjust the environment settings in Makefile accordingly.
+
+The Makefile supports these targets:
+
+  make compile
+  make run
+  make test
+  make clean
