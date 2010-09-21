@@ -8,14 +8,14 @@ PDIR=HelloFSharp
 FILES=${PDIR}/FsUnit.fs ${PDIR}/HelloWorld.fs ${PDIR}/Test.fs ${PDIR}/TestFsUnit.fs ${PDIR}/main.fs
 MAIN=main.exe
 
-compile: ${FILES}
-	${MONO} ${FSC} -o ${MAIN} ${FILES} -r ${NUNIT_BIN}/nunit.framework.dll
+${MAIN}: ${FILES}
+	${MONO} ${FSC} -o $@ ${FILES} -r ${NUNIT_BIN}/nunit.framework.dll
 
-run: compile
+run: ${MAIN}
 	${MONO} ${MAIN}
 
-test: compile
+test: ${MAIN}
 	${MONO} ${NUNIT_BIN}/nunit-console.exe ${MAIN}
 
 clean:
-	rm ${MAIN}
+	rm -f ${MAIN} TestResult.xml *~
